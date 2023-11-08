@@ -19,9 +19,16 @@ public class Application {
         final Session session = SessionFactoryProvider.getSessionFactory().openSession();
         try {
             session.beginTransaction();
+            final Vehicle vehicle1 = session.get(Vehicle.class, 2);
+            System.out.println(vehicle1);
             session.save(vehicle);
+          //  session.delete(vehicle);
             session.save(vehicleTwo);
             session.save(vehicleFour);
+            vehicleTwo.setVehicleName("toyota");
+            session.update(vehicleTwo);
+
+
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();

@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 
 @Entity
 //@DiscriminatorValue("Car")
@@ -13,6 +15,7 @@ import javax.persistence.Entity;
 @Getter
 @NoArgsConstructor
 public class FourWheeler extends Vehicle<Integer> {
+   // @JoinTable(name = "twoheel",joinColumns = @JoinColumn(name = "TwoId"),inverseJoinColumns =@JoinColumn(name = "streeHndler"))
     private String streeHandler;
 
 
