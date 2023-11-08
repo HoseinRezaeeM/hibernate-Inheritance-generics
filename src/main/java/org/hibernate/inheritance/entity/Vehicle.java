@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "vehicle")
@@ -15,7 +16,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Vehicle {
+public class Vehicle<ID extends Serializable> {
     @Id @GeneratedValue
     private Integer Id;
     private String VehicleName;

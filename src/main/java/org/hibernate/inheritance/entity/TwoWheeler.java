@@ -9,11 +9,11 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Bike")
+//@DiscriminatorValue("Bike")
 @Getter
 @Setter
 @NoArgsConstructor
-public class TwoWheeler extends Vehicle {
+public class TwoWheeler extends Vehicle<Integer> {
     private String streeingHandler;
 
 
