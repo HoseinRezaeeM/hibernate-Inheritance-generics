@@ -27,8 +27,11 @@ public class Application {
             session.save(vehicle);
             session.save(vehicleTwo);
             session.save(vehicleFour);
-            final Query query = session.createQuery("FROM Vehicle where Id > 2");
-            final List list = query.list();
+            final Query query = session.createQuery("FROM Vehicle ");
+            final List<Vehicle> list = query.list();
+            for (Vehicle v: list){
+                System.out.println(v.getVehicleName());
+            }
             System.out.println(list);
             session.getTransaction().commit();
         }catch (Exception e){
