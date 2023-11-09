@@ -27,14 +27,18 @@ public class Application {
             session.save(vehicle);
             session.save(vehicleTwo);
             session.save(vehicleFour);
-            final Query query = session.createQuery("FROM Vehicle ");
-            query.setFirstResult(5);   //first data
-            query.setMaxResults(2);   // max data
-            final List<Vehicle> list = query.list();
-            for (Vehicle v: list){
-                System.out.println(v.getVehicleName());
-            }
-            System.out.println(list);
+           // String id ="1";
+            final Query query = session.createQuery("SELECT Id FROM Vehicle where Id=:i");
+           query.setParameter("i","1");
+            final int i = query.executeUpdate();
+            System.out.println(i);
+            // query.setFirstResult(1);   //first data
+          //  query.setMaxResults(2);   // max data
+        //   final List<String> list = query.list();
+//            for (String v: list){
+//                System.out.println(v);
+//            }
+       //    System.out.println(list);
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();
