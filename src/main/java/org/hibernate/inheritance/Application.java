@@ -28,6 +28,8 @@ public class Application {
             session.save(vehicleTwo);
             session.save(vehicleFour);
             final Query query = session.createQuery("FROM Vehicle ");
+            query.setFirstResult(5);   //first data
+            query.setMaxResults(2);   // max data
             final List<Vehicle> list = query.list();
             for (Vehicle v: list){
                 System.out.println(v.getVehicleName());
