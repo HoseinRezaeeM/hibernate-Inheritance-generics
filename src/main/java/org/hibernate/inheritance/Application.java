@@ -5,6 +5,9 @@ import org.hibernate.inheritance.config.SessionFactoryProvider;
 import org.hibernate.inheritance.entity.FourWheeler;
 import org.hibernate.inheritance.entity.TwoWheeler;
 import org.hibernate.inheritance.entity.Vehicle;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
@@ -22,13 +25,11 @@ public class Application {
             final Vehicle vehicle1 = session.get(Vehicle.class, 2);
             System.out.println(vehicle1);
             session.save(vehicle);
-          //  session.delete(vehicle);
             session.save(vehicleTwo);
             session.save(vehicleFour);
-            vehicleTwo.setVehicleName("toyota");
-            session.update(vehicleTwo);
-
-
+            final Query query = session.createQuery("FROM Vehicle where Id > 2");
+            final List list = query.list();
+            System.out.println(list);
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();
