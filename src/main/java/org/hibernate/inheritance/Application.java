@@ -28,7 +28,7 @@ public class Application {
             session.save(vehicleTwo);
             session.save(vehicleFour);
            // String id ="1";
-            final Query query = session.createQuery("SELECT Id FROM Vehicle where Id=:i");
+            final Query query = session.createQuery("FROM Vehicle where Id=:i");
            query.setParameter("i","1");
             final int i = query.executeUpdate();
             System.out.println(i);
