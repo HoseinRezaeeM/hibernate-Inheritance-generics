@@ -6,6 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.inheritance.entity.FourWheeler;
 import org.hibernate.inheritance.entity.TwoWheeler;
+import org.hibernate.inheritance.entity.User;
 import org.hibernate.inheritance.entity.Vehicle;
 
 public class SessionFactoryProvider {
@@ -21,6 +22,7 @@ public class SessionFactoryProvider {
                 .addAnnotatedClass(Vehicle.class)
                 .addAnnotatedClass(TwoWheeler.class)
                 .addAnnotatedClass(FourWheeler.class)
+                .addAnnotatedClass(User.class)
                 .buildMetadata()
                 .buildSessionFactory();
     }
