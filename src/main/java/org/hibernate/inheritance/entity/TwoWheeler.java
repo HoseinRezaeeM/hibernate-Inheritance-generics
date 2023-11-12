@@ -18,8 +18,7 @@ public class TwoWheeler extends Vehicle<Integer> {
 
 
 
-    public TwoWheeler(String vehicleName, String streeingHandler) {
-        super(vehicleName);
+    public TwoWheeler( String streeingHandler) {
         this.streeingHandler = streeingHandler;
     }
 }

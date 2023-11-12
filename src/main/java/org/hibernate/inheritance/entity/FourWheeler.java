@@ -18,9 +18,7 @@ public class FourWheeler extends Vehicle<Integer> {
    // @JoinTable(name = "twoheel",joinColumns = @JoinColumn(name = "TwoId"),inverseJoinColumns =@JoinColumn(name = "streeHndler"))
     private String streeHandler;
 
-
-    public FourWheeler(String vehicleName, String streeHandler) {
-        super(vehicleName);
+    public FourWheeler(String streeHandler) {
         this.streeHandler = streeHandler;
     }
 }
