@@ -1,10 +1,7 @@
 package org.hibernate.inheritance.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,8 +21,8 @@ public class Vehicle<ID extends Serializable> {
     @Id @GeneratedValue
     private Integer Id;
     private String VehicleName;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Vehicle(String vehicleName) {
-        VehicleName = vehicleName;
-    }
 }
