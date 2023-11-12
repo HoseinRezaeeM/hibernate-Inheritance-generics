@@ -2,6 +2,8 @@ package org.hibernate.inheritance;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.inheritance.config.SessionFactoryProvider;
 import org.hibernate.inheritance.entity.FourWheeler;
@@ -40,9 +42,11 @@ public class Application {
 ////            query.setParameter("v","xanzi");
 ////           query.setParameter("i",43);
 ////           query.executeUpdate();
-        Criteria criteria = session.createCriteria(User.class);
+        Criteria criteria = session.createCriteria(User.class)
+                .setProjection(Projections.max("id"));
         //criteria.add(Restrictions.eq("name", "Hosein"));
-        criteria.add(Restrictions.or(Restrictions.between("id",0,1),Restrictions.between("id",1,3)));
+      //  criteria.add(Restrictions.or(Restrictions.between("id",0,1),Restrictions.between("id",1,3)));
+       // criteria.add(Restrictions.gt("id",2));
         final List list3 = criteria.list();
         System.out.println(list3);
 
