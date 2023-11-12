@@ -41,7 +41,8 @@ public class Application {
 ////           query.setParameter("i",43);
 ////           query.executeUpdate();
         Criteria criteria = session.createCriteria(User.class);
-        criteria.add(Restrictions.eq("name", "Hosein"));
+        //criteria.add(Restrictions.eq("name", "Hosein"));
+        criteria.add(Restrictions.or(Restrictions.between("id",0,1),Restrictions.between("id",1,3)));
         final List list3 = criteria.list();
         System.out.println(list3);
 
